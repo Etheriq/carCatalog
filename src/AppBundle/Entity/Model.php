@@ -98,7 +98,7 @@ class Model
     }
 
     /**
-     * @return string
+     * @return Marka
      */
     public function getMarka()
     {
@@ -106,10 +106,10 @@ class Model
     }
 
     /**
-     * @param string $marka
+     * @param Marka $marka
      * @return Model
      */
-    public function setMarka($marka)
+    public function setMarka(Marka $marka)
     {
         $this->marka = $marka;
 

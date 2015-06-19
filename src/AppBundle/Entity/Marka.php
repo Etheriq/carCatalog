@@ -40,7 +40,7 @@ class Marka
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Marka", mappedBy="marka", cascade={"persist", "remove"}, orphanRemoval=true )
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Model", mappedBy="marka", cascade={"persist", "remove"}, orphanRemoval=true )
      */
     private $models;
 
@@ -117,8 +117,9 @@ class Marka
      * @param Model $model
      * @return Marka
      */
-    public function addCsvData(Model $model)
+    public function addModel(Model $model)
     {
+        $model->setMarka($this);
         $this->models[] = $model;
 
         return $this;
@@ -127,7 +128,7 @@ class Marka
     /**
      * @param Model $model
      */
-    public function removeCsvData(Model $model)
+    public function removeModel(Model $model)
     {
         $this->models->removeElement($model);
     }
