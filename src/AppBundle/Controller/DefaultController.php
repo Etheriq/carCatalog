@@ -24,7 +24,7 @@ class DefaultController extends Controller
     {
         $client = new Client();
         $response = $client->get(self::AUTO_SITE_URL);
-        $crawler = new Crawler($response->getBody()->getContents(), 'http://www.autonet.ru/auto/ttx');
+        $crawler = new Crawler($response->getBody()->getContents(), self::AUTO_SITE_URL);
         $filtered = $crawler->filter('div.brands-block.bt-null ul li a')->each(function (Crawler $node, $i) {
 
             return ['marka' => $node->text(), "link" => $node->link()->getUri()];
